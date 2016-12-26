@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/out/test/SSOA-SOAP-REST"/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<lib name="json-lib-2.4-jdk15" scope="PROVIDED"/>
+	<levels>
+		<level name="json-lib-2.4-jdk15" value="project"/>
+	</levels>
+</component>
