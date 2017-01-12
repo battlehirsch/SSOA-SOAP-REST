@@ -12,9 +12,21 @@ import java.net.URLEncoder;
 
 /**
  * Created by Norbert.Fesel on 18.12.2016.
+ * REST-Client welcher den LocalWeatherService von "WorldWeatherOnline" anspricht.
  */
 public class LocalWeatherClient {
-
+    /**
+     * Versucht den Wetter-Service von "WorldWeatherOnline" mit den zuvor eingegebenen Paramtern abzufragen.
+     * Ist der API Key ungültig, oder wird kein Ort gefunden, kommt es zu einer Fehlermeldung.
+     * @param key
+     * gültiger API Key von WorldWeatherOnline
+     * @param location
+     * gewünschter Ort der Wetterabfrage als Name
+     * @return
+     * Retourniert die Antwort als String im JSON-Format.
+     * @throws Exception
+     * Fehlermeldung wird absichtlich geworfen, da sich im ServiceConsumer um eine korrekte Fehlerausgabe gekümmert wird.
+     */
     public String callLocalWeatherAPI(String key, String location) throws Exception {
         StringBuffer response = new StringBuffer();
         String apiURL = ConstantHelper.WEATHER_URL;
@@ -37,6 +49,11 @@ public class LocalWeatherClient {
         return response.toString();
     }
 
+    /**
+     * Verarbeitet die Antwort einer erfolgreichen Abfrage der "WorldWeatherOnline" API und zeigt relevante Informationen in der Konsole an.
+     * @param result
+     * Ergebnis der Abfrage als String im JSON-Format.
+     */
     public void printCurrentCondition(String result) {
         try {
             JSONObject jsonResult = JSONObject.fromObject(result);

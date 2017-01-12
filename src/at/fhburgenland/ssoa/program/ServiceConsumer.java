@@ -8,17 +8,22 @@ import java.util.Scanner;
 
 /**
  * Created by Norbert.Fesel on 18.12.2016.
+ * Der ServiceConsumer stellt die eigentliche Konsolenanwendung dar und bedient sich aller anderen Programmpackete, um die definierten Services anzuprogrammieren.
  */
 public class ServiceConsumer {
-
+    /**
+     * Begrüßt den Benutzer der Konsolenanwendung und verarbeitet die gewählte Menuoption. Je nach gewählter Option, wird entweder ein Geocoding-Service, oder ein Wetter-Service
+     * angesprochen. Der Input der für die Abfrage benötigten Parameter erfolgt in einer separaten Methode.
+     * @param args
+     * Standard main param
+     */
     public static void main(String[] args) {
-        //Initialisierung der benötigten Variablen
         int userChoice;
         Scanner input = new Scanner(System.in);
 
         System.out.println("Welcome to TraTo! - Created by Norbert Fesel & Hermann Hafner-Kragl");
 
-        //Applikationsmenü drucken
+        //Applikationsmenü anzeigen
         userChoice = MenuHelper.menu();
 
         while (userChoice != 3) {
@@ -39,6 +44,9 @@ public class ServiceConsumer {
 
     }
 
+    /**
+     * Fordert den Benutzer der Konsolenanwendung auf einen gültigen API Key sowie einen gewünschten Ort anzugeben, um den Request durchzuführen.
+     */
     private static void requestInputForWeatherAPI() {
         Scanner input = new Scanner(System.in);
 
@@ -51,6 +59,14 @@ public class ServiceConsumer {
         callLocalWeatherAPI(key, location);
     }
 
+    /**
+     * Versucht den Wetter-Service von "WorldWeatherOnline" mit den zuvor eingegebenen Paramtern abzufragen.
+     * Bei erfolgreichem Response, werden die erhaltenen Informationen in der Konsole angezeigt.
+     * @param key
+     * gültiger API Key von WorldWeatherOnline
+     * @param location
+     * gewünschter Ort der Wetterabfrage als Name
+     */
     private static void callLocalWeatherAPI(String key, String location) {
         LocalWeatherClient lclient = new LocalWeatherClient();
         try {
@@ -63,6 +79,9 @@ public class ServiceConsumer {
         }
     }
 
+    /**
+     * Fordert den Benutzer der Konsolenanwendung auf einen gültigen API Key, ein Land, sowie einen Ort anzugeben, um den Request durchzuführen.
+     */
     private static void requestInputForGeocodingAPI() {
         Scanner input = new Scanner(System.in);
 
@@ -82,6 +101,16 @@ public class ServiceConsumer {
 
     }
 
+    /**
+     * Versucht den Geocoding-Service von "PostCodeAnywhere" mit den zuvor eingegebenen Parametern abzufragen.
+     * Bei erfolgreichem Response, werden die erhaltenen Informationen in der Konsole angezeigt.
+     * @param key
+     * gültiger API Key von PostCodeAnywhere
+     * @param country
+     * gewünschtes Land als Name in englischer Sprache bzw als ISO-Code
+     * @param location
+     * gewünschter Ort im gewählten Land als Name in englischer Sprache oder Postleitzahl
+     */
     private static void callInternationalGeocodingAPI(String key, String country, String location) {
         GeocodingClient gclient = new GeocodingClient();
         try {

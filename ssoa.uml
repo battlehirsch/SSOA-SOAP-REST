@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>at.fhburgenland.ssoa</OriginalElement>
+  <nodes>
+    <node x="0.0" y="596.0">at.fhburgenland.ssoa.common.ConstantHelper</node>
+    <node x="471.0" y="596.0">at.fhburgenland.ssoa.program.MenuHelper</node>
+    <node x="0.0" y="0.0">at.fhburgenland.ssoa.rest.LocalWeatherClient</node>
+    <node x="561.75" y="221.0">at.fhburgenland.ssoa.program.ServiceConsumer</node>
+    <node x="664.0" y="0.0">at.fhburgenland.ssoa.soap.GeocodingClient</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="at.fhburgenland.ssoa.program.ServiceConsumer" target="at.fhburgenland.ssoa.soap.GeocodingClient">
+      <point x="101.5" y="-165.0" />
+      <point x="866.25" y="196.0" />
+      <point x="1207.5" y="196.0" />
+      <point x="0.0" y="85.5" />
+    </edge>
+    <edge source="at.fhburgenland.ssoa.program.ServiceConsumer" target="at.fhburgenland.ssoa.rest.LocalWeatherClient">
+      <point x="-101.5" y="-165.0" />
+      <point x="663.25" y="196.0" />
+      <point x="322.0" y="196.0" />
+      <point x="0.0" y="85.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="875.5" y="383.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

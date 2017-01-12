@@ -4,9 +4,14 @@ import java.util.Scanner;
 
 /**
  * Created by Norbert.Fesel on 18.12.2016.
- * Helperklasse für die Menüführung des Programms
+ * Diese Helperklasse ist für die Menüführung des Programms zuständig.
  */
 public class MenuHelper {
+    /**
+     * Zeigt das Menu in der Konsole an und verlangt nach einem Input um fortzufahren.
+     * @return
+     * selection ist die vom User der Applikation gewählte Menuoption.
+     */
     public static int menu() {
         int selection;
         Scanner input = new Scanner(System.in);

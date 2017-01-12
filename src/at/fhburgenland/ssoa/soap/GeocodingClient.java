@@ -13,10 +13,24 @@ import java.util.Hashtable;
 
 /**
  * Created by Norbert.Fesel on 18.12.2016.
- * GeocodingClient ist eine Consumerklasse für den internationalen SOAP-Geocodingservice von "Postcodeanywhere".
+ * SOAP-Client welcher den internationalen SOAP-Geocodingservice von "Postcodeanywhere" anspricht.
  */
 public class GeocodingClient {
-
+    /**
+     * Versucht den Geocoding-Service von "PostCodeAnywhere" mit den zuvor eingegebenen Parametern abzufragen.
+     * Ist der API Key, das Land oder der Ort ungültig, so kommt es zu einer Fehlermeldung.
+     * Als Vorlage für diese Methode diente eine Referenzimplementierung von "Postcodeanywhere".
+     * @param Key
+     * gültiger API Key von PostCodeAnywhere
+     * @param Country
+     * gewünschtes Land als Name in englischer Sprache bzw als ISO-Code
+     * @param Location
+     * gewünschter Ort im gewählten Land als Name in englischer Sprache oder Postleitzahl
+     * @return
+     * Retourniert die Antwort als Hashtable.
+     * @throws Exception
+     * Fehlermeldung wird absichtlich geworfen, da sich im ServiceConsumer um eine korrekte Fehlerausgabe gekümmert wird.
+     */
     public Hashtable[] Geocoding_International_Geocode_v1_10(String Key, String Country, String Location) throws Exception {
 
         //Initialisierung der benötigten Variablen
@@ -67,6 +81,11 @@ public class GeocodingClient {
         return results;
     }
 
+    /**
+     * Verarbeitet die Antwort einer erfolgreichen Abfrage der "PostCodeAnywhere" API und zeigt relevante Informationen in der Konsole an.
+     * @param geocodingResult
+     * Ergebnis der Abfrage als Hashtable
+     */
     public void printGeocodingResult(Hashtable[] geocodingResult) {
         if (geocodingResult != null || geocodingResult[0] != null) {
             if (geocodingResult[0].get("Name") != null && !"".equals(geocodingResult[0].get("Name"))) {
